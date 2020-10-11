@@ -298,7 +298,11 @@ class GoogleMapPlacePicker extends StatelessWidget {
     );
   }
 
-  Widget _defaultPlaceWidgetBuilder(BuildContext context, PickResult? data, SearchingState state) {
+  Widget _defaultPlaceWidgetBuilder(BuildContext context, PickResult data, SearchingState state) {
+    bool changeStateManually = false;
+    if (data != null){changeStateManually = true;}
+    else{changeStateManually = false;}
+
     return FloatingCard(
       bottomPosition: MediaQuery.of(context).size.height * 0.05,
       leftPosition: MediaQuery.of(context).size.width * 0.025,
@@ -307,7 +311,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.0),
       elevation: 4.0,
       color: Theme.of(context).cardColor,
-      child: state == SearchingState.Searching ? _buildLoadingIndicator() : _buildSelectionDetails(context, data!),
+      child: state == SearchingState.Searching && changeStateManually == false ? _buildLoadingIndicator() : _buildSelectionDetails(context, data),
     );
   }
 
