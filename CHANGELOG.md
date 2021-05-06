@@ -1,3 +1,23 @@
+## [2.0.0-nullsafety.3] - 18/Mar/2021
+
+- Updated google_maps_webservice to 0.0.20-nullsafety.2
+
+## [2.0.0-nullsafety.2] - 17/Mar/2021
+
+- Fixed bugs (PR #106, #108)
+
+## [2.0.0-nullsafety.1] - 11/Mar/2021
+
+- Updated to handle nullsafety.
+
+## [2.0.0-nullsafety.0] - 08/Mar/2021
+
+- Updated to solve nullsafety issues
+
+## [1.0.1] - 23/Nov/2020
+
+- Fixed bug related to infinte loading.
+
 ## [1.0.0] - 05/Oct/2020
 
 - Updated google_maps_flutter version to 1.0.2 which is now out of developer preview.
