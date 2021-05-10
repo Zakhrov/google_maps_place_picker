@@ -289,7 +289,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
           return Container();
         } else {
           if (selectedPlaceWidgetBuilder == null) {
-            return _defaultPlaceWidgetBuilder(context, data.item1, data.item2);
+            return _defaultPlaceWidgetBuilder(context, data.item1 != null? data.item1 : null, data.item2);
           } else {
             return Builder(builder: (builderContext) => selectedPlaceWidgetBuilder!(builderContext, data.item1, data.item2, data.item3));
           }
@@ -298,7 +298,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
     );
   }
 
-  Widget _defaultPlaceWidgetBuilder(BuildContext context, PickResult data, SearchingState state) {
+  Widget _defaultPlaceWidgetBuilder(BuildContext context, PickResult? data, SearchingState state) {
     bool changeStateManually = false;
     if (data != null){changeStateManually = true;}
     else{changeStateManually = false;}
@@ -311,7 +311,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.0),
       elevation: 4.0,
       color: Theme.of(context).cardColor,
-      child: state == SearchingState.Searching && changeStateManually == false ? _buildLoadingIndicator() : _buildSelectionDetails(context, data),
+      child: state == SearchingState.Searching && changeStateManually == false ? _buildLoadingIndicator() : _buildSelectionDetails(context, data!),
     );
   }
 
@@ -328,13 +328,13 @@ class GoogleMapPlacePicker extends StatelessWidget {
     );
   }
 
-  Widget _buildSelectionDetails(BuildContext context, PickResult result) {
+  Widget _buildSelectionDetails(BuildContext context, PickResult? result) {
     return Container(
       margin: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[
           Text(
-            result.formattedAddress!,
+            result!.formattedAddress!,
             style: TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
